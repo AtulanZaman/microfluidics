@@ -20,10 +20,11 @@ let print x = print_endline x;;
 
 let parse str = 
 	try
-	   Str.search_forward (Str.regexp ".*value*.") str 0;
-  	   let s = Str.matched_string str in
-	   	print_endline s
-	with Not_found -> print_endline "value not found";;
+	   ignore(Str.search_forward (Str.regexp ".*value*.") str 0);
+  	   let tokens = Str.split (Str.regexp "\"") str in
+		let value = List.nth tokens 3 in
+			print_endline value
+	with Not_found -> () ;;
 
 let in_channel = open_in "test_html" in
 try
