@@ -1,0 +1,44 @@
+CHOREOGRAPHY neurotransmitter-sensing BEGIN
+
+ENVSETLIST:
+	TIME:92s,
+	RESERVOIRS:3
+	ALSOC:2.5cm * 1.5cm
+ENDLIST;
+
+USELIST:
+	mixer1,
+	separator1,
+ENDLIST;
+
+PORTLIST
+	ip1 INPUT,
+	ip2 INPUT,
+	ip3 INPUT,
+ENDLIST;
+
+INSTANLIST:
+	s1, ip1,
+	s2, ip2,
+	s3, ip3,
+	separator1, separator1,
+	mixer1, mixer1,
+	buf, buf OF separator2,
+ENDLIST;
+
+INTERLIST:
+	ARRAY RESULT[] {},
+ENDLIST;
+
+DOLIST:
+	MOVE mixer1, s1
+	MOVE mixer1, s2
+	MIX mixer1, 50
+	
+	MOVE buf, s3
+	MOVE separator1, mixer1
+	SEPARATE separator1, 223, 9, 22 USING CE
+	SENSE sensor1, RESULT USING FL
+ENDLIST;
+
+ENDCHORE;
