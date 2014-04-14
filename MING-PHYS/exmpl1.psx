@@ -1,0 +1,8 @@
+ELEMENT{IDENT:pmax, TYPE:range, VALUE:3-1}
+ELEMENT{IDENT:lmax, TYPE:constant, VALUE:1}
+ELEMENT{IDENT:wmax, TYPE:constant, VALUE:1}
+
+NODE{IDENT:ip1, x:?, y?, type:CONTROL , pressure=?} 
+NODE{IDENT:output, x:?, y:?, type:SLAVE , pressure=?}
+
+CHANNEL{IDENT:seperator1, length=?,radius=?, flowrate=?, START=ip1, END=output}

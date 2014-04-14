@@ -1,5 +1,4 @@
-#use "topfind";;
-#require "str";;
+
 
 let line_stream_of_channel channel =
     Stream.from
