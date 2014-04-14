@@ -1,0 +1,44 @@
+CHOREOGRAPHY glucose-detection BEGIN
+
+ENVSETLIST:
+	TIME:275s
+	RESERVOIRS:3
+	ALSOC:? * ? //default area
+ENDLIST;
+
+USELIST:
+	mixer,
+	sensor,
+	INPUT port ip1,
+	INPUT port ip2,
+	INPUT port ip3,
+ENDLIST;
+
+INSTANLIST:
+	s1, ip1,
+	s2, ip2,
+	s3, ip3,
+	mixer1, mixer,
+	sensor1, sensor,
+ENDLIST;
+
+CONNECTIONLIST:
+ENDLIST;
+
+INTERLIST:
+	ARRAY RESULT[5] {},
+	INT X 1,
+ENDLIST;
+
+DOLIST:
+	REPEAT 5 {
+		MOVE mixer1, s1, 1
+		MOVE mixer1, s2, X
+		MIX mixer1, 10
+		MOVE sensor1, mixer1
+		SENSOR sensor1, RESULT[X]
+		MUL X, X, 2;
+	}
+ENDLIST;
+
+ENDCHORE;

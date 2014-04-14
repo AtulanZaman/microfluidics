@@ -1,0 +1,72 @@
+CHOREOGRAPHY glucose-detection BEGIN
+
+ENVSETLIST:
+	TIME:?
+	RESERVOIRS:?
+	ALSOC: ? * ?
+ENDLIST;
+
+USELIST:
+	L,
+	B,
+	PCR_chamber,
+	RDReagents,
+	DNA,
+	electrophoresis_section,
+	ReproGel,
+	PCR_product
+ENDLIST;
+
+INSTANLIST:
+	L1, L,
+	L2, L,
+	L3, L,
+	B1, B,
+	B4, B,
+	pc, PCR_chamber,
+	rd, RDReagents,
+	pcra, PCR_Reagents,
+	dna, DNA,
+	es, electrophoresis_section,
+	gel, ReproGel,
+	prod, PCR_product,
+ENDLIST;
+
+CONNECTIONLIST:
+ENDLIST;
+
+DOLIST:
+	FILL L1, pc, 0.24, .0008
+	FILL L2, dna, 0.6, .0008
+	FILL L3, rd, 0.5, .0008
+	FILL B4, gel, 0.1, .0008
+	
+	MOVE pc, L1, 100
+	MOVE pc, L2, 100
+	
+	HEAT pc 92, 30
+	
+	REPEAT 35{
+		HEAT pc, 92, 5
+		HEAT pc, 55, 10
+		HEAT pc, 72, 20
+	}
+	
+	HEAT pc, 72, 60
+	
+	MOVE prod, pc, 50
+	MOVE rd, L3, 100
+	MOVE rd, prod, 100
+	
+	DIGEST rd, 37, 600
+	MOVE B1, rd, 50
+	
+	MOVE es, B1, 100
+	MOVE es, B4, 100
+	SEPARATE es, 600
+	
+	MOVE B3, es, 100
+	FLUSH B3
+ENDLIST;
+
+ENDCHORE;
