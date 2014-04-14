@@ -7,22 +7,32 @@ ENVSETLIST:
 ENDLIST;
 
 USELIST:
-	flu_diagnoses
+	L,
+	B,
+	PCR_chamber,
+	RDReagents,
+	DNA,
+	electrophoresis_section,
+	ReproGel,
+	PCR_product
 ENDLIST;
 
 INSTANLIST:
-	L1, L1 OF flu_diagnoses,
-	L2, L2 OF flu_diagnoses,
-	L3, L3 OF flu_diagnoses,
-	B1, B1 OF flu_diagnoses,
-	B4, B4 OF flu_diagnoses,
-	pc, PCR_chamber OF flu_diagnoses,
+	L1, L,
+	L2, L,
+	L3, L,
+	B1, B,
+	B4, B,
+	pc, PCR_chamber,
 	rd, RDReagents,
 	pcra, PCR_Reagents,
-	dna, DNA OF flu_diagnoses,
-	es, electrophoresis_section OF flu_diagnoses,
+	dna, DNA,
+	es, electrophoresis_section,
 	gel, ReproGel,
-	prod, PCR_product
+	prod, PCR_product,
+ENDLIST;
+
+CONNECTIONLIST:
 ENDLIST;
 
 DOLIST:

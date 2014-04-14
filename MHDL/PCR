@@ -3,27 +3,27 @@ CHOREOGRAPHY PCR BEGIN
 ENVSETLIST:
 	TIME:895s,
 	RESERVOIRS:2,
-	ALSOC:14.5mm*?
+	ALSOC: 0.145 * ?
 ENDLIST;
 
 USELIST:
-	heater1,
-	separator1,
-	sensor1,
-ENDLIST;
-
-PORTLIST
-	ip1 INPUT,
-	ip2 INPUT,
+	heater,
+	separator,
+	sensor,
+	INPUT port ip1,
+	INPUT port ip2,
 ENDLIST;
 
 INSTANLIST:
 	s1, ip1,
 	s2, ip2,
-	heater1, heater1,
-	separator1, separator1,
-	sensor1, sensor1,
-	buf, buf OF separator2,
+	heater1, heater,
+	separator1, separator,
+	separator2, separator
+	sensor1, sensor,
+ENDLIST;
+
+CONNECTIONLIST:
 ENDLIST;
 
 INTERLIST:
@@ -39,7 +39,7 @@ DOLIST:
 		INCUBATE heater1, 72, 10
 	}
 	
-	MOVE buf, s2
+	MOVE separator2.buf, s2
 	MOVE separator1, heater1
 	SEPARATE separator1, 236, 5, 180 USING CE
 	SENSE sensor1, RESULT USING FL

@@ -3,19 +3,16 @@ CHOREOGRAPHY Imaging-Probe-Synthesis BEGIN
 ENVSETLIST:
 	TIME:548s	
 	RESERVOIRS:4
-	ALSOC:13mm * 9mm
+	ALSOC: 1.3 * 0.9
 ENDLIST;
 
 USELIST:
 	mixer1,
 	heater1,
-ENDLIST;
-
-PORTLIST
-	ip1 INPUT,
-	ip2 INPUT,
-	ip3 INPUT,
-	ip4 INPUT,
+	INPUT port ip1,
+	INPUT port ip2,
+	INPUT port ip3,
+	INPUT port ip4,
 ENDLIST;
 
 INSTANLIST:
@@ -23,8 +20,11 @@ INSTANLIST:
 	s2, ip2,
 	s3, ip3,
 	s4, ip4,
-	heater1, heater1,
-	mixer1, mixer1,
+	heater1, heater,
+	mixer1, mixer,
+ENDLIST;
+
+CONNECTIONLIST:
 ENDLIST;
 
 DOLIST:

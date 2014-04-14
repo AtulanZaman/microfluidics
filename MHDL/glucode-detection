@@ -3,29 +3,26 @@ CHOREOGRAPHY glucose-detection BEGIN
 ENVSETLIST:
 	TIME:275s
 	RESERVOIRS:3
-	ALSOC:? * ?
+	ALSOC:? * ? //default area
 ENDLIST;
 
 USELIST:
-	mixer1,
-	sensor1,
-ENDLIST;
-
-CONNECTIONLIST:
-ENDLIST;
-
-PORTLIST
-	ip1 INPUT,
-	ip2 INPUT,
-	ip3 INPUT,
+	mixer,
+	sensor,
+	INPUT port ip1,
+	INPUT port ip2,
+	INPUT port ip3,
 ENDLIST;
 
 INSTANLIST:
 	s1, ip1,
 	s2, ip2,
 	s3, ip3,
-	mixer1, mixer1,
-	sensor1, sensor1,
+	mixer1, mixer,
+	sensor1, sensor,
+ENDLIST;
+
+CONNECTIONLIST:
 ENDLIST;
 
 INTERLIST:
