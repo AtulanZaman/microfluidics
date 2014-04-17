@@ -1,0 +1,25 @@
+Program:= (DesignUnit)*
+
+DesignUnit:= CHOREGRAPHY ENVLIST USELIST INSTLIST DOLIST
+
+CHOREOGRAPHY:= 'CHOREOGRAPHY' Id
+
+ENVLIST:= 'ENVSETLIST' 'TIME'':' Digit ',''RESERVOIR'':' Digit ',' 'WIDTH'':' Digit ',''LENGTH'':' DIGIT ',' 'ENDLIST'';'
+
+USELIST:= 'USELIST' USE* 'ENDLIST'';'
+
+INSTLIST:= 'INSTANTLIST' INST* 'ENDLIST'';'
+
+DOLIST:= 'DOLIST' Action* 'ENDLIST';
+
+Action:= Char
+INST:= Id Component ','
+USE:= Component ','
+Component:= 'INPUT' | 'SEPARATOR'
+Id:= Char(Char|Digit| '_')*
+Char:= [A-Za-z]
+Digit:= [0-9]
+
+// do we need to express whitespaces in the grammer declaration
+// Stuff missing in the grammar.
+// Missing the implementation of the action list.
