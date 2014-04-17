@@ -7,8 +7,8 @@ ENVSETLIST:
 ENDLIST;
 
 USELIST:
-	mixer1,
-	heater1,
+	mixer,
+	heater,
 	INPUT port ip1,
 	INPUT port ip2,
 	INPUT port ip3,
