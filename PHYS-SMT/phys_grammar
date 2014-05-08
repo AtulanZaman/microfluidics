@@ -1,0 +1,13 @@
+Program:=Line* EOF | EOF
+
+Line:= Node Line | Channel Line
+
+Element:='Element{' 'Ident:' String COMMA  'Type:' SLAVE|MASTER COMMA 'Value':Float|Range '}' 
+
+Node:= 'Node{' 'Type:' SLAVE|CONTROL COMMA 'x:' Float COMMA 'y:' Float COMMA 'Pressure:' Float COMMA '}'
+
+Channel:= 'Channel{' 'StartNode:' String COMMA 'EndNode:' String COMMA 'Length:'Float
+
+Range:=Float HYPHEN Float
+Float:= [0-9]*.[0-9]*
+String:= [A-Za-z]*
